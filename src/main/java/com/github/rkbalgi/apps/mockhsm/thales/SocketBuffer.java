@@ -1,9 +1,13 @@
 package com.github.rkbalgi.apps.mockhsm.thales;
 
+import io.netty.buffer.ByteBufUtil;
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SocketBuffer {
+  private static final Logger log = LogManager.getLogger(SocketBuffer.class);
   private Buffer buff = Buffer.buffer();
   private Handler<Buffer> handler;
 
@@ -12,6 +16,8 @@ public class SocketBuffer {
   }
 
   public void appendBuffer(Buffer buf) {
+    log.debug(() -> "Appending - " + ByteBufUtil.hexDump(buf.getBytes()));
+
     buff.appendBuffer(buf);
     handleInternal();
   }
