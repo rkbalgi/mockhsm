@@ -21,7 +21,7 @@
         </plugins>
     </build>
     <properties>
-        <vertx.version>3.5.0</vertx.version>
+        <vertx.version>3.9.2</vertx.version>
         <rx2.version>2.1.0</rx2.version>
     </properties>
 
